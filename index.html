@@ -1,12 +1,408 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-adsense-account" content="ca-pub-2707355772688628" />
-    <title>Home</title>
+    <meta
+      name="description"
+      content="Kadiace portfolio: playful web games, experiments, and interactive projects."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23fff7e7'/%3E%3Cpath d='M6 45 32 7l26 38-9 12H15z' fill='%232857ff' stroke='%23201a17' stroke-width='5'/%3E%3Ctext x='32' y='44' font-size='27' font-family='Arial Black,Arial' text-anchor='middle' fill='%23fff7e7'%3EK%3C/text%3E%3C/svg%3E"
+    />
+    <title>KADIACE</title>
+    <style>
+      :root {
+        --ink: #201a17;
+        --paper: #fff7e7;
+        --paper-strong: #ffe8ad;
+        --line: #201a17;
+        --red: #e43b35;
+        --blue: #2857ff;
+        --green: #35b06f;
+        --shadow: 8px 8px 0 var(--line);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 18% 12%, rgba(228, 59, 53, 0.2), transparent 24rem),
+          radial-gradient(circle at 82% 4%, rgba(40, 87, 255, 0.16), transparent 22rem),
+          linear-gradient(90deg, rgba(32, 26, 23, 0.04) 1px, transparent 1px),
+          linear-gradient(rgba(32, 26, 23, 0.04) 1px, transparent 1px),
+          var(--paper);
+        background-size: auto, auto, 32px 32px, 32px 32px, auto;
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .wrap {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 44px 0 64px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 28px;
+        align-items: end;
+        margin-bottom: 34px;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-size: clamp(4rem, 16vw, 11.5rem);
+        line-height: 0.82;
+        letter-spacing: -0.06em;
+        text-shadow: 7px 7px 0 var(--blue), 12px 12px 0 rgba(32, 26, 23, 0.16);
+      }
+
+      .tagline {
+        display: inline-block;
+        margin-top: 18px;
+        padding: 8px 13px;
+        transform: rotate(-1.2deg);
+        border: 3px solid var(--line);
+        background: var(--paper-strong);
+        box-shadow: 5px 5px 0 var(--line);
+        font-family: "Arial Black", Arial, sans-serif;
+        font-size: clamp(1rem, 2.4vw, 1.35rem);
+        letter-spacing: 0.03em;
+      }
+
+      .intro {
+        max-width: 36rem;
+        margin: 0;
+        padding: 18px 20px;
+        border: 3px solid var(--line);
+        background: rgba(255, 247, 231, 0.9);
+        box-shadow: var(--shadow);
+        font-size: 1.05rem;
+        line-height: 1.62;
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+        font-family: "Arial Black", Arial, sans-serif;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+      }
+
+      .links a {
+        padding: 5px 8px;
+        border: 2px solid var(--line);
+        background: #fff;
+        text-decoration: none;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 38px 0 18px;
+        font-family: "Arial Black", Arial, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .section-title::after {
+        content: "";
+        flex: 1;
+        height: 4px;
+        background: var(--line);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .card {
+        position: relative;
+        min-height: 310px;
+        overflow: hidden;
+        border: 4px solid var(--line);
+        background: #fff;
+        box-shadow: var(--shadow);
+        text-decoration: none;
+        transition: transform 160ms ease, box-shadow 160ms ease;
+      }
+
+      .card[href]:hover,
+      .card[href]:focus-visible {
+        transform: translate(-4px, -4px);
+        box-shadow: 12px 12px 0 var(--line);
+        outline: none;
+      }
+
+      .card[href]:active {
+        transform: translate(2px, 2px);
+        box-shadow: 4px 4px 0 var(--line);
+      }
+
+      .cover {
+        height: 190px;
+        border-bottom: 4px solid var(--line);
+        background-color: #111;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .cover.ink {
+        background:
+          radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85) 0 7%, transparent 8%),
+          radial-gradient(circle at 67% 54%, rgba(255, 255, 255, 0.7) 0 5%, transparent 6%),
+          linear-gradient(135deg, #0f1024, #40205f 52%, #111 53%);
+      }
+
+      .cover.feed {
+        background-image: linear-gradient(rgba(18, 13, 22, 0.08), rgba(18, 13, 22, 0.08)),
+          url("https://kadiace.github.io/2023f-cs489-feed-lovers/ogimage.png");
+      }
+
+      .cover.material {
+        background-image: url("https://kadiace.github.io/material/ogimage.png");
+      }
+
+      .cover.sos {
+        background-image: url("https://project-why.github.io/s.o.s/ogimage.png");
+      }
+
+      .cover.getover {
+        background:
+          linear-gradient(120deg, transparent 0 44%, #201a17 45% 51%, transparent 52%),
+          radial-gradient(circle at 68% 36%, #f8f2dc 0 9%, transparent 10%),
+          linear-gradient(160deg, #9dd1ff, #f9e9b5 48%, #7c6048 49% 56%, #2c2220 57%);
+      }
+
+      .cover.trash {
+        display: grid;
+        place-items: center;
+        padding: 16px;
+        background: #050505;
+      }
+
+      .trash-logo {
+        width: 100%;
+        transform: rotate(-2deg) skewX(-7deg);
+        text-align: center;
+        font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+        line-height: 0.88;
+      }
+
+      .trash-logo .eco {
+        display: block;
+        color: #fff200;
+        font-size: clamp(1.45rem, 4vw, 3rem);
+        text-shadow: -6px 8px 0 #0057ff;
+      }
+
+      .trash-logo .title {
+        display: block;
+        margin-top: 8px;
+        color: #d80012;
+        font-size: clamp(3.1rem, 8vw, 6.2rem);
+        letter-spacing: -0.08em;
+        -webkit-text-stroke: 4px #fff;
+        text-shadow: 11px 11px 0 #666, 20px 20px 0 #111;
+      }
+
+      .card-body {
+        padding: 15px 16px 17px;
+      }
+
+      .card h3 {
+        margin: 0 0 8px;
+        font-family: "Arial Black", Arial, sans-serif;
+        font-size: 1.12rem;
+        letter-spacing: -0.02em;
+      }
+
+      .card p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.45;
+      }
+
+      .meta {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 3px 7px;
+        border: 2px solid var(--line);
+        background: var(--red);
+        color: #fff;
+        font-family: "Arial Black", Arial, sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .card:nth-child(2n) .meta {
+        background: var(--blue);
+      }
+
+      .card:nth-child(3n) .meta {
+        background: var(--green);
+      }
+
+      .disabled {
+        cursor: default;
+      }
+
+      .disabled::after {
+        content: "Archive card";
+        position: absolute;
+        top: 12px;
+        right: -34px;
+        width: 136px;
+        padding: 5px 0;
+        transform: rotate(35deg);
+        border: 2px solid var(--line);
+        background: var(--paper-strong);
+        font-family: "Arial Black", Arial, sans-serif;
+        font-size: 0.66rem;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .footer {
+        margin-top: 34px;
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 620px) {
+        .wrap {
+          width: min(100% - 22px, 1120px);
+          padding-top: 26px;
+        }
+
+        h1 {
+          font-size: clamp(3.5rem, 24vw, 7rem);
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .card {
+          min-height: 0;
+        }
+      }
+    </style>
   </head>
   <body>
-    <p>Hello kadiace!</p>
+    <main class="wrap">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <h1 id="page-title">KADIACE</h1>
+          <strong class="tagline">web games, strange systems, and interactive toys</strong>
+        </div>
+        <p class="intro">
+          안녕하세요. 작은 게임과 웹 실험을 만드는 Kadiace입니다. 아래 프로젝트들을 눌러 바로
+          플레이하거나 살펴볼 수 있어요.
+          <span class="links" aria-label="project quick links">
+            <a href="https://github.com/kadiace">[GitHub]</a>
+            <a href="#projects">[Projects]</a>
+          </span>
+        </p>
+      </section>
+
+      <h2 class="section-title" id="projects">Projects</h2>
+
+      <section class="grid" aria-label="portfolio projects">
+        <a class="card" href="https://kadiace.github.io/2020w-cs496-ink-man/">
+          <div class="cover ink" role="img" aria-label="Ink Man abstract dark cover"></div>
+          <div class="card-body">
+            <span class="meta">Unity WebGL</span>
+            <h3>Ink Man</h3>
+            <p>A compact Unity web game prototype built around ink, movement, and quick reactions.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://kadiace.github.io/2023f-cs489-feed-lovers/">
+          <div class="cover feed" role="img" aria-label="Feed Lovers cover image"></div>
+          <div class="card-body">
+            <span class="meta">Algorithm Game</span>
+            <h3>Feed Lovers!</h3>
+            <p>You can be the best algorithm ever in this playful system-design web project.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://kadiace.github.io/material/">
+          <div class="cover material" role="img" aria-label="Material cover image"></div>
+          <div class="card-body">
+            <span class="meta">Web Experiment</span>
+            <h3>物質 - Material</h3>
+            <p>All that comes back is empty space: an atmospheric browser-based interactive piece.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://project-why.github.io/s.o.s/">
+          <div class="cover sos" role="img" aria-label="S.O.S cover image"></div>
+          <div class="card-body">
+            <span class="meta">Narrative Web</span>
+            <h3>S.O.S</h3>
+            <p>Is anybody out there? A signal, a question, and a small web experience.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://kadiace.github.io/get-over/">
+          <div class="cover getover" role="img" aria-label="GetOver stylized landscape cover"></div>
+          <div class="card-body">
+            <span class="meta">Unity WebGL</span>
+            <h3>GetOver</h3>
+            <p>A physics-flavored climbing challenge packaged for instant browser play.</p>
+          </div>
+        </a>
+
+        <article class="card disabled" aria-label="Trash Man archive project without a public link">
+          <div class="cover trash" role="img" aria-label="Trash Man cover based on the provided image">
+            <div class="trash-logo" aria-hidden="true">
+              <span class="eco">環境保護</span>
+              <span class="title">トラッシュマン</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="meta">Archive</span>
+            <h3>Trash Man</h3>
+            <p>No public link yet. The portfolio grid keeps its place with the supplied project image.</p>
+          </div>
+        </article>
+      </section>
+
+      <p class="footer">© Kadiace. Built as a lightweight static portfolio for GitHub Pages.</p>
+    </main>
   </body>
 </html>
