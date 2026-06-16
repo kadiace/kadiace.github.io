@@ -169,10 +169,10 @@
       }
 
       .cover.ink {
-        background:
-          radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85) 0 7%, transparent 8%),
-          radial-gradient(circle at 67% 54%, rgba(255, 255, 255, 0.7) 0 5%, transparent 6%),
-          linear-gradient(135deg, #0f1024, #40205f 52%, #111 53%);
+        background-color: #f2f2f2;
+        background-image: url("https://user-images.githubusercontent.com/65358599/105020260-6a47a900-5a8a-11eb-9dd1-d07c4900048b.PNG");
+        background-repeat: no-repeat;
+        background-size: contain;
       }
 
       .cover.feed {
@@ -196,35 +196,10 @@
       }
 
       .cover.trash {
-        display: grid;
-        place-items: center;
-        padding: 16px;
-        background: #050505;
-      }
-
-      .trash-logo {
-        width: 100%;
-        transform: rotate(-2deg) skewX(-7deg);
-        text-align: center;
-        font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
-        line-height: 0.88;
-      }
-
-      .trash-logo .eco {
-        display: block;
-        color: #fff200;
-        font-size: clamp(1.45rem, 4vw, 3rem);
-        text-shadow: -6px 8px 0 #0057ff;
-      }
-
-      .trash-logo .title {
-        display: block;
-        margin-top: 8px;
-        color: #d80012;
-        font-size: clamp(3.1rem, 8vw, 6.2rem);
-        letter-spacing: -0.08em;
-        -webkit-text-stroke: 4px #fff;
-        text-shadow: 11px 11px 0 #666, 20px 20px 0 #111;
+        background-color: #111c22;
+        background-image: url("assets/trash-man.png");
+        background-repeat: no-repeat;
+        background-size: cover;
       }
 
       .card-body {
@@ -388,12 +363,7 @@
         </a>
 
         <article class="card disabled" aria-label="Trash Man archive project without a public link">
-          <div class="cover trash" role="img" aria-label="Trash Man cover based on the provided image">
-            <div class="trash-logo" aria-hidden="true">
-              <span class="eco">環境保護</span>
-              <span class="title">トラッシュマン</span>
-            </div>
-          </div>
+          <div class="cover trash" role="img" aria-label="Trash Man cover based on the provided image"></div>
           <div class="card-body">
             <span class="meta">Archive</span>
             <h3>Trash Man</h3>
