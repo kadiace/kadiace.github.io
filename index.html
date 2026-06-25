@@ -10,9 +10,13 @@
     />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23fff7e7'/%3E%3Cpath d='M6 45 32 7l26 38-9 12H15z' fill='%232857ff' stroke='%23201a17' stroke-width='5'/%3E%3Ctext x='32' y='44' font-size='27' font-family='Arial Black,Arial' text-anchor='middle' fill='%23fff7e7'%3EK%3C/text%3E%3C/svg%3E"
+      href="data:image/svg+xml,
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+        <path d='M12 11 L32 53' stroke='rgb(255,91,46)' stroke-width='18' stroke-linecap='round' fill='none'/>
+        <path d='M52 11 L47 21.5' stroke='rgb(32,26,23)' stroke-width='18' stroke-linecap='round' fill='none'/>
+      </svg>"
     />
-    <title>KADIACE</title>
+    <title>Kadiace's Playground</title>
     <style>
       :root {
         --ink: #201a17;
@@ -30,11 +34,13 @@
       }
 
       html {
+        min-height: 100%;
         scroll-behavior: smooth;
       }
 
       body {
         margin: 0;
+        min-height: 100vh;
         color: var(--ink);
         background:
           radial-gradient(
@@ -56,6 +62,7 @@
           32px 32px,
           32px 32px,
           auto;
+        background-repeat: no-repeat, no-repeat, repeat, repeat, no-repeat;
         font-family: Georgia, "Times New Roman", serif;
       }
 
@@ -64,9 +71,12 @@
       }
 
       .wrap {
+        display: flex;
+        flex-direction: column;
         width: min(1120px, calc(100% - 32px));
+        min-height: 100vh;
         margin: 0 auto;
-        padding: 44px 0 64px;
+        padding: 44px 0 0;
       }
 
       .hero {
@@ -260,9 +270,12 @@
       }
 
       .footer {
-        margin-top: 34px;
-        font-size: 0.9rem;
-        opacity: 0.8;
+        margin: auto 0 0;
+        padding: 34px 0 64px;
+        text-align: center;
+        font-family: "Arial Black", Arial, sans-serif;
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
+        letter-spacing: -0.07em;
       }
 
       @media (max-width: 900px) {
@@ -306,8 +319,8 @@
           >
         </div>
         <p class="intro">
-          안녕하세요. 작은 게임과 웹 실험을 만드는 Kadiace입니다. 아래
-          프로젝트들을 눌러 바로 플레이하거나 살펴볼 수 있어요.
+          Hi, I'm Kadiace. I make small games and web experiments. Feel free to
+          click the projects below to play them or take a look.
           <span class="links" aria-label="project quick links">
             <a href="https://github.com/kadiace">[GitHub]</a>
             <a href="#projects">[Projects]</a>
@@ -417,9 +430,7 @@
         </a>
       </section>
 
-      <p class="footer">
-        © Kadiace. Built as a lightweight static portfolio for GitHub Pages.
-      </p>
+      <footer class="footer">Have a nice day! :)</footer>
     </main>
   </body>
 </html>
